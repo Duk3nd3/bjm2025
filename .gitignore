@@ -1,0 +1,55 @@
+# ============================================
+# Godot 4.x .gitignore (Optimizado)
+# ============================================
+
+# --- Carpetas generadas automáticamente ---
+.import/
+.cache/
+.godot/
+
+# --- Archivos de importación ---
+imported/*
+*.import
+
+# --- Archivos temporales del editor ---
+*.tmp
+*.temp
+*.translation
+
+# --- Archivos de configuración de usuario ---
+editor_layout.cfg
+project_metadata.cfg
+script_editor_cache.cfg
+text_editor_cache.cfg
+*.cfg.lock
+
+# --- Builds / Export Templates ---
+export_presets.cfg
+build/
+bin/
+exports/
+dist/
+
+# --- Archivos de sistema ---
+.DS_Store
+Thumbs.db
+
+# --- Archivos de Godot C# (si usaras .NET) ---
+.mono/
+data_*
+*.csproj
+*.sln
+*.unityproj
+*.userprefs
+
+# --- Archivos de logs ---
+logs/
+*.log
+
+# --- Archivos de swap ---
+*.swp
+*.swo
+
+# --- Python (por si usás scripts auxiliares) ---
+__pycache__/
+*.pyc
