@@ -72,7 +72,7 @@ func _unhandled_input(event):
 			print("¡ERRASTE! Perdes una vida.")
 			lose_a_life()
 
-# --- FUNCION PARA COMPROBAR LA VICTORIA ---
+# --- FUNCION PARA COMPROBAR LA VICTORIA (MODIFICADA) ---
 func check_victory_condition():
 	# Asumimos que el jugador ha ganado
 	var has_won = true
@@ -86,9 +86,32 @@ func check_victory_condition():
 	
 	# Si despues de revisar todos los pares, 'has_won' sigue siendo true...
 	if has_won:
-		print("¡FELICIDADES, HAS GANADO!")
+		print("FELICIDADES, GANASTE!")
+		
+		# --- NUEVO: LOGICA DE BONIFICACION POR VIDAS ---
+		var bonus = 0
+		
+		# Usamos 'match' para asignar un bonus segun las vidas restantes
+		match lives:
+			5:
+				bonus = 500 # Bonus perfecto
+			4:
+				bonus = 300
+			3:
+				bonus = 150
+			2:
+				bonus = 50
+			1:
+				bonus = 10 # Bonus de milagro
+			_: # Este es el caso por defecto, si 'lives' es 0 o cualquier otro valor
+				bonus = 0
+		
+		# Sumamos el bonus a la puntuacion
+		score += bonus
+		print("Bonus de ", bonus, " puntos por terminar con ", lives, " vidas.")
 		print("Puntuacion final: ", score)
-		# MODIFICADO: Apagamos el procesamiento de input para que no se puedan perder mas vidas
+		
+		# Apagamos el procesamiento de input para que no se puedan perder mas vidas
 		set_process_unhandled_input(false)
 
 # --- FUNCIONES DEL SISTEMA DE VIDAS ---
