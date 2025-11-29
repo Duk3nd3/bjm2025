@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=3 uid="uid://bv178gt3okdq"]
+
+[ext_resource type="Script" uid="uid://bgmavv7j5xy2o" path="res://Scripts/main.gd" id="1_bo1nx"]
+[ext_resource type="Texture2D" uid="uid://bfwyddcgdmigw" path="res://Assets/blue_icon.png" id="2_8gbba"]
+[ext_resource type="Texture2D" uid="uid://dt3b6vdbjcxgk" path="res://Assets/gray_icon_1.png" id="3_8gbba"]
+[ext_resource type="Texture2D" uid="uid://cnav6a5op3hyw" path="res://Assets/green_icon.png" id="4_6bp64"]
+[ext_resource type="Texture2D" uid="uid://tvr8fv12llbu" path="res://Assets/gray_icon_2.png" id="5_344ge"]
+[ext_resource type="Texture2D" uid="uid://bsyjang528kf" path="res://Assets/red_icon.png" id="6_ynf5e"]
+[ext_resource type="Texture2D" uid="uid://vxhcx6ojo3d0" path="res://Assets/gray_icon_3.png" id="7_hptm8"]
+[ext_resource type="Texture2D" uid="uid://ce2xramffm58t" path="res://Assets/life_icon.png" id="8_344ge"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_bo1nx")
+
+[node name="BlueIcon" type="Sprite2D" parent="."]
+position = Vector2(262, 113)
+texture = ExtResource("2_8gbba")
+
+[node name="GrayIcon1" type="Sprite2D" parent="."]
+position = Vector2(258, 314)
+texture = ExtResource("3_8gbba")
+
+[node name="GreenIcon" type="Sprite2D" parent="."]
+position = Vector2(593, 116)
+texture = ExtResource("4_6bp64")
+
+[node name="GrayIcon2" type="Sprite2D" parent="."]
+position = Vector2(595, 314)
+texture = ExtResource("5_344ge")
+
+[node name="RedIcon" type="Sprite2D" parent="."]
+position = Vector2(908, 106)
+texture = ExtResource("6_ynf5e")
+
+[node name="GrayIcon3" type="Sprite2D" parent="."]
+position = Vector2(915, 319)
+texture = ExtResource("7_hptm8")
+
+[node name="LivesContainer" type="HBoxContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+
+[node name="Life1" type="Sprite2D" parent="LivesContainer"]
+position = Vector2(61, 592)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_344ge")
+
+[node name="Life2" type="Sprite2D" parent="LivesContainer"]
+position = Vector2(149, 595)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_344ge")
+
+[node name="Life3" type="Sprite2D" parent="LivesContainer"]
+position = Vector2(240.00003, 596.00006)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_344ge")
+
+[node name="Life4" type="Sprite2D" parent="LivesContainer"]
+position = Vector2(331, 598.00006)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_344ge")
+
+[node name="Life5" type="Sprite2D" parent="LivesContainer"]
+position = Vector2(422.99997, 597.00006)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_344ge")
