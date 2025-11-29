@@ -15,7 +15,8 @@ var life_icons: Array[Sprite2D] = []
 #VARIABLES DE ESTADO DEL JUEGO
 var swap_pairs = []
 var lives = 5
-var score = 0 #Variable para la puntuacion
+var time = 0
+var score = 0 #Puntaje inicial
 
 func _ready():
 	print("Juego iniciado. Tenes 5 vidas.")
@@ -34,6 +35,9 @@ func _ready():
 	]
 	
 	update_lives_display()
+
+func _process(delta):
+	time += delta
 
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
@@ -86,6 +90,8 @@ func check_victory_condition():
 	
 	#Si despues de revisar todos los pares, 'has_won' sigue siendo true...
 	if has_won:
+		TimerData.tiempo_total = time
+		get_tree().change_scene_to_file("res://Escenas/ganaste.tscn")
 		print("FELICIDADES, GANASTE!")
 		
 		#LOGICA DE BONIFICACION POR VIDAS
@@ -108,7 +114,9 @@ func check_victory_condition():
 		
 		#Sumamos el bonus a la puntuacion
 		score += bonus
+		TimerData.lives = lives
 		print("Bonus de ", bonus, " puntos por terminar con ", lives, " vidas.")
+		TimerData.score = score
 		print("Puntuacion final: ", score)
 		
 		#Apagamos el procesamiento de input para que no se puedan perder mas vidas
@@ -123,6 +131,7 @@ func lose_a_life():
 		print("GAME OVER")
 		print("Puntuacion final: ", score)
 		#Apagamos el procesamiento de input
+		get_tree().change_scene_to_file("res://Escenas/Perdiste.tscn")
 		set_process_unhandled_input(false)
 	else:
 		print("Vidas restantes: ", lives)
