@@ -1,6 +1,6 @@
 extends Node2D
 
-# --- REFERENCIAS A LOS ICONOS DEL JUEGO ---
+#REFERENCIAS A LOS ICONITOS DEL JUEGO
 @onready var blue_icon: Sprite2D = $BlueIcon
 @onready var gray_icon1: Sprite2D = $GrayIcon1
 @onready var green_icon: Sprite2D = $GreenIcon
@@ -8,14 +8,14 @@ extends Node2D
 @onready var red_icon: Sprite2D = $RedIcon
 @onready var gray_icon3: Sprite2D = $GrayIcon3
 
-# --- REFERENCIAS A LOS ICONOS DE VIDA ---
+#REFERENCIAS A LOS ICONITOS DE VIDA
 @onready var lives_container: HBoxContainer = $LivesContainer
 var life_icons: Array[Sprite2D] = []
 
-# --- VARIABLES DE ESTADO DEL JUEGO ---
+#VARIABLES DE ESTADO DEL JUEGO
 var swap_pairs = []
 var lives = 5
-var score = 0 # Variable para la puntuacion
+var score = 0 #Variable para la puntuacion
 
 func _ready():
 	print("Juego iniciado. Tenes 5 vidas.")
@@ -49,9 +49,9 @@ func _unhandled_input(event):
 				hit_detected = true
 				
 				if pair.can_swap:
-					print("¡ACERTASTE en el icono ", pair.main_sprite.name, "!")
+					print("ACERTASTE en el icono ", pair.main_sprite.name, "!")
 					
-					# Sumamos puntos por el acierto
+					#Sumamos puntos por el acierto
 					score += 100
 					print("Puntuacion: ", score)
 					
@@ -60,7 +60,7 @@ func _unhandled_input(event):
 					pair.gray_sprite.position = temp_pos
 					pair.can_swap = false
 					
-					# Despues de un intercambio, comprobamos si se ha ganado
+					#Despues de un intercambio, comprobamos si se ha ganado
 					check_victory_condition()
 					
 				else:
@@ -69,32 +69,32 @@ func _unhandled_input(event):
 				break
 
 		if not hit_detected:
-			print("¡ERRASTE! Perdes una vida.")
+			print("ERRASTE! Perdes una vida.")
 			lose_a_life()
 
-# --- FUNCION PARA COMPROBAR LA VICTORIA (MODIFICADA) ---
+#FUNCION PARA COMPROBAR LA VICTORIA (MODIFICADA)
 func check_victory_condition():
-	# Asumimos que el jugador ha ganado
+	#Asumimos que el jugador gano
 	var has_won = true
 	
-	# Recorremos todos los pares. Si encontramos uno que todavia se puede intercambiar,
-	# significa que el jugador aun no ha ganado.
+	#Recorremos todos los pares. Si encontramos uno que todavia se puede intercambiar,
+	#significa que el jugador aun no ha ganado
 	for pair in swap_pairs:
 		if pair.can_swap:
 			has_won = false
-			break # Salimos del bucle, no hay necesidad de seguir comprobando
+			break #Salimos del bucle, no hay necesidad de seguir comprobando
 	
-	# Si despues de revisar todos los pares, 'has_won' sigue siendo true...
+	#Si despues de revisar todos los pares, 'has_won' sigue siendo true...
 	if has_won:
 		print("FELICIDADES, GANASTE!")
 		
-		# --- NUEVO: LOGICA DE BONIFICACION POR VIDAS ---
+		#LOGICA DE BONIFICACION POR VIDAS
 		var bonus = 0
 		
-		# Usamos 'match' para asignar un bonus segun las vidas restantes
+		#usamos 'match' para asignar un bonus segun las vidas restantes
 		match lives:
 			5:
-				bonus = 500 # Bonus perfecto
+				bonus = 500 #Bonus Perfecto
 			4:
 				bonus = 300
 			3:
@@ -102,20 +102,19 @@ func check_victory_condition():
 			2:
 				bonus = 50
 			1:
-				bonus = 10 # Bonus de milagro
-			_: # Este es el caso por defecto, si 'lives' es 0 o cualquier otro valor
+				bonus = 10 #Bonus Milagroso xD
+			_: #Este es el caso por defecto, si 'lives' es 0 o cualquier otro valor
 				bonus = 0
 		
-		# Sumamos el bonus a la puntuacion
+		#Sumamos el bonus a la puntuacion
 		score += bonus
 		print("Bonus de ", bonus, " puntos por terminar con ", lives, " vidas.")
 		print("Puntuacion final: ", score)
 		
-		# Apagamos el procesamiento de input para que no se puedan perder mas vidas
+		#Apagamos el procesamiento de input para que no se puedan perder mas vidas
 		set_process_unhandled_input(false)
 
-# --- FUNCIONES DEL SISTEMA DE VIDAS ---
-
+#FUNCIONES DEL SISTEMA DE VIDAS
 func lose_a_life():
 	lives -= 1
 	update_lives_display()
@@ -123,7 +122,7 @@ func lose_a_life():
 	if lives <= 0:
 		print("GAME OVER")
 		print("Puntuacion final: ", score)
-		# Apagamos el procesamiento de input
+		#Apagamos el procesamiento de input
 		set_process_unhandled_input(false)
 	else:
 		print("Vidas restantes: ", lives)
