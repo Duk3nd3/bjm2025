@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="point-and-click"
-run/main_scene="uid://bv178gt3okdq"
+run/main_scene="uid://dnqg4bar51rju"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="uid://bfwyddcgdmigw"
+
+[autoload]
+
+TimerData="*res://Scripts/TimerData.gd"
 
 [editor]
 

@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://be2wrmqm4l5xo"]
+
+[ext_resource type="Script" uid="uid://bwxmxc0gwjmow" path="res://Scripts/perdiste.gd" id="1_7jrqc"]
+[ext_resource type="Texture2D" uid="uid://d0t8j0sn80bc5" path="res://Assets/derrota.png" id="1_g255e"]
+
+[node name="Perdiste" type="Node2D"]
+script = ExtResource("1_7jrqc")
+
+[node name="Derrota" type="Sprite2D" parent="."]
+position = Vector2(608, 392)
+scale = Vector2(2, 2)
+texture = ExtResource("1_g255e")
+
+[node name="Label" type="Label" parent="Derrota"]
+offset_left = -248.0
+offset_top = -88.0
+offset_right = 262.0
+offset_bottom = 36.0
+theme_override_font_sizes/font_size = 90
+text = "PERDISTE =("
+
+[node name="Button_Volver" type="Button" parent="."]
+offset_left = 1088.0
+offset_top = 32.0
+offset_right = 1125.0
+offset_bottom = 65.0
+text = "II"

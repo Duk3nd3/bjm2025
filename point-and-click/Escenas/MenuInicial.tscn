@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://dnqg4bar51rju"]
+
+[ext_resource type="Script" uid="uid://denpjnq1kv12" path="res://Scripts/menu_inicial.gd" id="1_ko3br"]
+[ext_resource type="Texture2D" uid="uid://cecu0xs2b0hrl" path="res://Assets/MagiaFondo.png" id="2_1wodv"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ko3br")
+
+[node name="Fondo" type="Sprite2D" parent="."]
+position = Vector2(582, 330.00003)
+scale = Vector2(1.8, 1.802)
+texture = ExtResource("2_1wodv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Fondo"]
+offset_left = -190.0
+offset_top = -42.175385
+offset_right = 188.0
+offset_bottom = 92.824615
+alignment = 1
+
+[node name="JUGAR" type="Button" parent="Fondo/VBoxContainer"]
+layout_mode = 2
+text = "JUGAR"
+
+[node name="CREDITOS" type="Button" parent="Fondo/VBoxContainer"]
+layout_mode = 2
+text = "CREDITOS"
+
+[node name="SALIR" type="Button" parent="Fondo/VBoxContainer"]
+layout_mode = 2
+text = "SALIR
+"
