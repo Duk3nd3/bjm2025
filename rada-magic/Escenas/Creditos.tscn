@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpsua4eud14ng"]
+
+[ext_resource type="Script" path="res://Escenas/creditos.gd" id="1_n7avv"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 3.0
+offset_right = -1.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n7avv")
+
+[node name="Button_Volver" type="Button" parent="."]
+layout_mode = 0
+offset_left = 556.0
+offset_top = 498.0
+offset_right = 613.0
+offset_bottom = 529.0
+text = "Volver"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 347.0
+offset_top = 103.0
+offset_right = 808.0
+offset_bottom = 568.0
+text = "Anahel Cambiaso Pezzella, @Aghali ,Arte 2D
+María Paula Comastri, @Antares ,Arte 2D
+Rodrigo Cardoso, @Rodri/Pacha ,Programación (usando Godot como motor)
+Juan Vargas, @Duk3nd3  ,Programación (usando Godot como motor)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
