@@ -27,3 +27,7 @@ window/size/viewport_height=1080
 [editor]
 
 movie_writer/movie_file="C:/Users/RoCso/Desktop/GameJam 2025/bjm2025/primeras_pruebas.avi"
+
+[gui]
+
+theme/custom_font="uid://ch8byp0s02141"

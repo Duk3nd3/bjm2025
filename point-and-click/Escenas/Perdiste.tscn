@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://be2wrmqm4l5xo"]
+[gd_scene load_steps=4 format=3 uid="uid://be2wrmqm4l5xo"]
 
 [ext_resource type="Script" uid="uid://bwxmxc0gwjmow" path="res://Scripts/perdiste.gd" id="1_7jrqc"]
 [ext_resource type="Texture2D" uid="uid://brnfiiiyvhfja" path="res://Assets/FONDOS/FAILED/FONDO PERDER.png" id="2_7jrqc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7jrqc"]
+font_size = 80
+font_color = Color(0, 0, 0, 1)
+outline_size = 20
+stacked_outline_count = 1
 
 [node name="Perdiste" type="Node2D"]
 position = Vector2(10, 0)
@@ -13,17 +19,26 @@ scale = Vector2(1, 0.987)
 texture = ExtResource("2_7jrqc")
 
 [node name="Label" type="Label" parent="Derrota"]
-offset_left = -248.0
-offset_top = -88.0
-offset_right = 262.0
-offset_bottom = 36.0
-theme_override_font_sizes/font_size = 90
-text = "PERDISTE =("
+offset_left = -393.0
+offset_top = -253.29282
+offset_right = 426.0
+offset_bottom = -129.29282
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 40
+theme_override_font_sizes/font_size = 101
+text = "TU PUBLICO SE HA IDO"
+label_settings = SubResource("LabelSettings_7jrqc")
+horizontal_alignment = 1
 
 [node name="Button_Volver" type="Button" parent="."]
-visible = false
-offset_left = 1088.0
-offset_top = 32.0
-offset_right = 1125.0
-offset_bottom = 65.0
-text = "II"
+offset_left = 750.0
+offset_top = 999.0
+offset_right = 1167.0
+offset_bottom = 1072.0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+toggle_mode = true
+action_mode = 0
+text = "VOLVER A JUGAR"

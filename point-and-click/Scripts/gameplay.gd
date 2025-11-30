@@ -12,9 +12,7 @@ extends Node2D
 @onready var lives_container: HBoxContainer = $LivesContainer
 var life_icons: Array[Sprite2D] = []
 
-# Referencias a las cortinas y al poster
-@onready var cortina_izquierda: Sprite2D = $CortinaIzquierda
-@onready var cortina_derecha: Sprite2D = $CortinaDerecha
+# Referencia al poster
 @onready var poster_radagast: Sprite2D = $PosterRadagast
 
 #VARIABLES DE ESTADO DEL JUEGO
@@ -26,17 +24,20 @@ var score = 0 #Puntaje inicial
 func _ready():
 	print("Juego iniciado. Tenes 5 vidas.")
 	
-	# Preparamos el poster para que aparezca con un efecto de desvanecimiento
+	#Agregamos una comprobacion de seguridad
 	if poster_radagast:
-		poster_radagast.modulate.a = 0.0 # Lo hacemos completamente transparente
-		poster_radagast.visible = true
+		#Preparamos el poster para que aparezca con un efecto de desvanecimiento
+		poster_radagast.modulate.a = 0.0 #Lo hacemos completamente transparente
+		poster_radagast.visible = true #Lo hacemos visible pero invisible (necesario para el tween)
+	else:
+		print("OJO!: El nodo PosterRadagast no fue encontrado en la escena.")
 	
 	life_icons.clear()
 	for child in lives_container.get_children():
 		if child is Sprite2D:
 			life_icons.append(child)
 		else:
-			print("ADVERTENCIA: Se encontro un nodo que no es Sprite2D en LivesContainer: ", child.name)
+			print("OJO!: Se encontro un nodo que no es Sprite2D en LivesContainer: ", child.name)
 	
 	swap_pairs = [
 		{"main_sprite": galeraColor, "gray_sprite": galeraGris, "can_swap": true},
@@ -49,40 +50,6 @@ func _ready():
 func _process(delta):
 	time += delta
 
-# --- NUEVA FUNCIÓN AUXILIAR PARA DETECCIÓN PRECISA ---
-# Comprueba si un clic del mouse cayó sobre un píxel no transparente de un sprite
-func _is_click_on_sprite(sprite: Sprite2D, mouse_pos: Vector2) -> bool:
-	# 1. Obtenemos la textura del sprite
-	var texture = sprite.texture
-	if not texture:
-		return false # Si no tiene textura, no se puede hacer clic
-	
-	# 2. Convertimos la posición global del mouse a coordenadas locales del sprite
-	var local_pos = sprite.to_local(mouse_pos)
-	
-	# 3. Obtenemos el rectángulo del sprite para comprobar los límites
-	var rect = sprite.get_rect()
-	
-	# 4. Si el clic está fuera del rectángulo del sprite, devolvemos falso
-	if not rect.has_point(local_pos):
-		return false
-		
-	# 5. Obtenemos la imagen de la textura
-	var image = texture.get_image()
-	
-	# 6. Convertimos las coordenadas locales a coordenadas de píxel en la imagen
-	var pixel_coords = Vector2i(
-		int(local_pos.x / rect.size.x * image.get_width()),
-		int(local_pos.y / rect.size.y * image.get_height())
-	)
-	
-	# 7. Obtenemos el color del píxel en esas coordenadas
-	var pixel_color = image.get_pixel(pixel_coords.x, pixel_coords.y)
-	
-	# 8. Devolvemos verdadero solo si el píxel no es transparente (alfa > 0)
-	return pixel_color.a > 0.1 # Usamos un pequeño umbral por si acaso
-
-# --- FUNCIÓN _unhandled_input MODIFICADA ---
 func _unhandled_input(event):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		
@@ -90,8 +57,10 @@ func _unhandled_input(event):
 		var hit_detected = false
 		
 		for pair in swap_pairs:
-			# MODIFICADO: Usamos nuestra nueva función de detección precisa
-			if _is_click_on_sprite(pair.main_sprite, mouse_pos):
+			var main_rect = pair.main_sprite.get_rect()
+			main_rect.position += pair.main_sprite.global_position
+			
+			if main_rect.has_point(mouse_pos):
 				hit_detected = true
 				
 				if pair.can_swap:
@@ -118,9 +87,7 @@ func _unhandled_input(event):
 			print("ERRASTE! Perdes una vida.")
 			lose_a_life()
 
-# --- El resto de tu código se queda igual ---
-
-# --- LÓGICA DE VICTORIA CON ANIMACIÓN DE CORTINAS ---
+#LOGICA DE VICTORIA CON AWAIT
 func check_victory_condition():
 	var has_won = true
 	for pair in swap_pairs:
@@ -129,9 +96,12 @@ func check_victory_condition():
 			break
 	
 	if has_won:
-		print("¡FELICIDADES, GANASTE!")
+		print("FELICIDADES, GANASTE!")
+		
+		# 1.Apagamos el procesamiento de input
 		set_process_unhandled_input(false)
 		
+		# 2.Calculamos la puntuacion final como antes
 		var bonus = 0
 		match lives:
 			5: bonus = 500
@@ -145,36 +115,38 @@ func check_victory_condition():
 		print("Bonus de ", bonus, " puntos por terminar con ", lives, " vidas.")
 		print("Puntuacion final: ", score)
 		
+		# 3.Guardamos los datos para la pantalla final
 		TimerData.tiempo_total = time
 		TimerData.lives = lives
 		TimerData.score = score
 		
+		# 4.Iniciamos la secuencia de victoria con pausas
 		await victory_sequence()
 
+#SECUENCIA DE VICTORIA
 func victory_sequence():
+	#Pausa el juego por 2 segundos
 	await get_tree().create_timer(2.0).timeout
-	print("Han pasado 2 segundos. Abriendo cortinas...")
+	print("Pasaron 2 segundos. Mostrando poster...")
 	
-	open_curtains()
-	show_victory_poster()
+	#Agregamos una comprobacion de seguridad
+	if poster_radagast:
+		#Muestra el poster con el efecto de desvanecimiento
+		show_victory_poster()
 	
+	#Pausa el juego por 3 segundos mas (para un total de 5)
 	await get_tree().create_timer(3.0).timeout
-	print("Han pasado 5 segundos en total. Cambiando de escena...")
+	print("Pasaron 5 segundos en total. Cambiando de escena...")
 	
+	#Cambia a la escena de victoria
 	get_tree().change_scene_to_file("res://Escenas/ganaste.tscn")
 
-func open_curtains():
-	if cortina_izquierda and cortina_derecha:
-		var tween = create_tween()
-		tween.parallel().tween_property(cortina_izquierda, "position:x", cortina_izquierda.position.x - 500, 1.5)
-		tween.parallel().tween_property(cortina_derecha, "position:x", cortina_derecha.position.x + 500, 1.5)
-	else:
-		print("ADVERTENCIA: No se encontraron los nodos de las cortinas para animar.")
-
+#Funcion que muestra el poster con una animacion
 func show_victory_poster():
-	if poster_radagast:
-		var tween = create_tween()
-		tween.tween_property(poster_radagast, "modulate:a", 1.0, 1.5)
+	#Creamos una animacion (Tween)
+	var tween = create_tween()
+	#Animamos la propiedad 'modulate:a' (transparencia) de 0 a 1 en 1.5 segundos
+	tween.tween_property(poster_radagast, "modulate:a", 1.0, 1.5)
 
 #FUNCIONES DEL SISTEMA DE VIDAS
 func lose_a_life():

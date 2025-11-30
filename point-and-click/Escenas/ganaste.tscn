@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://d1o657genxv7l" path="res://Scripts/ganaste.gd" id="1_y31e3"]
 [ext_resource type="Texture2D" uid="uid://elgu0inpypll" path="res://Assets/FONDOS/WIN/FONDO GANAR.png" id="2_y31e3"]
 
-[node name="Ganaste" type="Node2D"]
+[node name="Ganaste" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_y31e3")
 
 [node name="Victoria" type="Sprite2D" parent="."]
@@ -11,37 +13,62 @@ position = Vector2(963, 535)
 scale = Vector2(1, 0.987)
 texture = ExtResource("2_y31e3")
 
-[node name="Button_Volver" type="Button" parent="."]
-visible = false
-offset_left = 1088.0
-offset_top = 32.0
-offset_right = 1125.0
-offset_bottom = 65.0
-text = "II"
+[node name="ContenedorPrincipal" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 384.0
+offset_top = 207.99997
+offset_right = 1421.0
+offset_bottom = 809.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.1349325, 1.1349325)
 
-[node name="TiempoLabel" type="Label" parent="."]
-offset_left = 248.0
-offset_top = 80.0
-offset_right = 320.0
-offset_bottom = 128.0
-theme_override_font_sizes/font_size = 20
+[node name="TituloLabel" type="Label" parent="ContenedorPrincipal"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 40
+theme_override_font_sizes/font_size = 101
+text = "¡FELICIDADES, GANASTE!"
+
+[node name="TiempoLabel" type="Label" parent="ContenedorPrincipal"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 40
+theme_override_font_sizes/font_size = 75
 text = "1ro"
 horizontal_alignment = 1
 
-[node name="PuntajeLabel" type="Label" parent="."]
-offset_left = 256.0
-offset_top = 192.0
-offset_right = 320.0
-offset_bottom = 256.0
-theme_override_font_sizes/font_size = 20
+[node name="PuntajeLabel" type="Label" parent="ContenedorPrincipal"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 40
+theme_override_font_sizes/font_size = 75
 text = "2do"
 horizontal_alignment = 1
 
-[node name="VidasLabel" type="Label" parent="."]
-offset_left = 256.0
-offset_top = 336.0
-offset_right = 320.0
-offset_bottom = 386.0
-theme_override_font_sizes/font_size = 20
+[node name="VidasLabel" type="Label" parent="ContenedorPrincipal"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 40
+theme_override_font_sizes/font_size = 75
 text = "3ro"
 horizontal_alignment = 1
+
+[node name="Button_Volver" type="Button" parent="ContenedorPrincipal"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+toggle_mode = true
+button_pressed = true
+action_mode = 0
+text = "Volver al inicio"
