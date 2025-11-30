@@ -1,9 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dygw8m7qpp8hy"]
+[gd_scene load_steps=5 format=3 uid="uid://dygw8m7qpp8hy"]
 
 [ext_resource type="Script" uid="uid://d1o657genxv7l" path="res://Scripts/ganaste.gd" id="1_y31e3"]
 [ext_resource type="Texture2D" uid="uid://0830hy8xihq2" path="res://Assets/FONDOS/WIN/FONDO GANAR.png" id="2_y31e3"]
-[ext_resource type="Script" uid="uid://vl7hep41gsd7" path="res://Scripts/efecto.gd" id="3_pyce0"]
-[ext_resource type="Texture2D" uid="uid://ciqle4roc0rs0" path="res://Assets/ILUMINACION/light.png" id="4_icwuc"]
 [ext_resource type="Texture2D" uid="uid://bgq4f3mhk64up" path="res://Assets/Cursor.png" id="5_d8078"]
 [ext_resource type="Script" uid="uid://cddq21hv1o5y2" path="res://Scripts/cursor.gd" id="6_wbu58"]
 
@@ -16,10 +14,10 @@ scale = Vector2(0.6, 0.596)
 texture = ExtResource("2_y31e3")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 309.0
-offset_top = 223.0
-offset_right = 953.0
-offset_bottom = 359.0
+offset_left = 88.0
+offset_top = 168.0
+offset_right = 732.0
+offset_bottom = 304.0
 theme_override_font_sizes/font_size = 50
 
 [node name="Button_Volver" type="Button" parent="."]
@@ -29,62 +27,45 @@ offset_right = 1125.0
 offset_bottom = 65.0
 text = "II"
 
-[node name="Efecto" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 936.0
-offset_top = -168.0
-offset_right = 976.0
-offset_bottom = -128.0
-script = ExtResource("3_pyce0")
-duracion_total = 5.0
-"spot_tamaño" = Vector2(400, 400)
-
-[node name="OverlayNegro" type="ColorRect" parent="Efecto"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -6.0000005
-anchor_top = -4.0
-anchor_right = -6.0000005
-anchor_bottom = -4.0
-offset_left = -696.0
-offset_top = 328.0
-offset_right = 456.0
-offset_bottom = 976.0
-
-[node name="SpotLeft" type="TextureRect" parent="Efecto"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -23.2
-anchor_top = 4.4
-anchor_right = 5.4
-anchor_bottom = 20.400002
-offset_left = -104.0
-offset_top = -400.0
-offset_right = -224.0
-offset_bottom = -16.000061
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_icwuc")
-
-[node name="SpotRight" type="TextureRect" parent="Efecto"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -19.800001
-anchor_top = 0.5
-anchor_right = -19.800001
-anchor_bottom = 0.5
-offset_left = -239.99994
-offset_top = -244.0
-offset_right = 784.00006
-offset_bottom = 780.0
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_icwuc")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(575.99994, 311.99997)
+[node name="Cursor" type="Sprite2D" parent="."]
+position = Vector2(1232, 488)
 rotation = 0.7295476
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("5_d8078")
 flip_v = true
 script = ExtResource("6_wbu58")
 stiffness = 20.0
+
+[node name="GanasteLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="TiempoLabel" type="Label" parent="."]
+offset_left = 80.0
+offset_top = 312.0
+offset_right = 243.0
+offset_bottom = 362.0
+theme_override_font_sizes/font_size = 36
+text = "Tiempo --"
+
+[node name="PuntajeLabel" type="Label" parent="."]
+offset_left = 72.0
+offset_top = 384.0
+offset_right = 206.0
+offset_bottom = 434.0
+theme_override_font_sizes/font_size = 36
+text = "Puntaje"
+
+[node name="VidasLabel" type="Label" parent="."]
+offset_left = 72.0
+offset_top = 464.0
+offset_right = 165.0
+offset_bottom = 514.0
+theme_override_font_sizes/font_size = 36
+text = "Vidas"
+
+[node name="FadeRect" type="ColorRect" parent="."]
+offset_left = 16.0
+offset_top = -104.0
+offset_right = 56.0
+offset_bottom = -64.0

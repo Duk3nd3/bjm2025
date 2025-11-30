@@ -1,9 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnqg4bar51rju"]
+[gd_scene load_steps=8 format=3 uid="uid://dnqg4bar51rju"]
 
 [ext_resource type="Script" uid="uid://denpjnq1kv12" path="res://Scripts/menu_inicial.gd" id="1_ko3br"]
-[ext_resource type="Texture2D" uid="uid://cecu0xs2b0hrl" path="res://Assets/MagiaFondo.png" id="2_1wodv"]
+[ext_resource type="Texture2D" uid="uid://0ullflgbwkya" path="res://Assets/FONDOS/FONDO JUEGO/Fondo_Placeholder.png" id="2_pm8da"]
 [ext_resource type="Texture2D" uid="uid://bgq4f3mhk64up" path="res://Assets/Cursor.png" id="3_pm8da"]
 [ext_resource type="Script" uid="uid://cddq21hv1o5y2" path="res://Scripts/cursor.gd" id="4_j5por"]
+[ext_resource type="Texture2D" uid="uid://hdyodx1lxwey" path="res://Assets/FONDOS/FONDO JUEGO/Fondo_Cortinas_Placeholder.png" id="5_j5por"]
+[ext_resource type="Texture2D" uid="uid://cu54fy47eyy1w" path="res://Assets/ILUMINACION/spark.png" id="6_tkmgy"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tkmgy"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 20.0
+initial_velocity_max = 55.0
+gravity = Vector3(0, 0, 0)
+damping_min = 12.000001
+damping_max = 12.088
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -14,27 +25,31 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ko3br")
 
-[node name="Fondo" type="Sprite2D" parent="."]
-position = Vector2(582, 330.00003)
-scale = Vector2(1.8, 1.802)
-texture = ExtResource("2_1wodv")
+[node name="FondoPlaceholder" type="Sprite2D" parent="."]
+position = Vector2(752, 344)
+texture = ExtResource("2_pm8da")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Fondo"]
-offset_left = -190.0
-offset_top = -42.175385
-offset_right = 188.0
-offset_bottom = 92.824615
+[node name="FondoCortinasPlaceholder" type="Sprite2D" parent="FondoPlaceholder"]
+position = Vector2(0, -40)
+scale = Vector2(0.81, 0.81)
+texture = ExtResource("5_j5por")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="FondoPlaceholder"]
+offset_left = -280.0
+offset_top = 56.0
+offset_right = 98.0
+offset_bottom = 191.0
 alignment = 1
 
-[node name="JUGAR" type="Button" parent="Fondo/VBoxContainer"]
+[node name="JUGAR" type="Button" parent="FondoPlaceholder/VBoxContainer"]
 layout_mode = 2
 text = "JUGAR"
 
-[node name="CREDITOS" type="Button" parent="Fondo/VBoxContainer"]
+[node name="CREDITOS" type="Button" parent="FondoPlaceholder/VBoxContainer"]
 layout_mode = 2
 text = "CREDITOS"
 
-[node name="SALIR" type="Button" parent="Fondo/VBoxContainer"]
+[node name="SALIR" type="Button" parent="FondoPlaceholder/VBoxContainer"]
 layout_mode = 2
 text = "SALIR
 "
@@ -47,3 +62,42 @@ texture = ExtResource("3_pm8da")
 flip_v = true
 script = ExtResource("4_j5por")
 stiffness = 20.0
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Sprite2D"]
+visible = false
+scale = Vector2(0.01, 0.01)
+amount = 120
+texture = ExtResource("6_tkmgy")
+preprocess = 0.1
+randomness = 0.4
+process_material = SubResource("ParticleProcessMaterial_tkmgy")
+
+[node name="Historia1" type="Label" parent="."]
+layout_mode = 0
+offset_left = 264.0
+offset_top = 48.0
+offset_right = 427.0
+offset_bottom = 98.0
+theme_override_font_sizes/font_size = 20
+text = "1ro"
+horizontal_alignment = 1
+
+[node name="Historia2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 296.0
+offset_top = 192.0
+offset_right = 430.0
+offset_bottom = 242.0
+theme_override_font_sizes/font_size = 20
+text = "2do"
+horizontal_alignment = 1
+
+[node name="Historia3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 88.0
+offset_top = 344.0
+offset_right = 181.0
+offset_bottom = 394.0
+theme_override_font_sizes/font_size = 20
+text = "3ro"
+horizontal_alignment = 1

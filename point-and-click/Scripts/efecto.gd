@@ -11,16 +11,6 @@ var fase := 0  # 0 = entrada, 1 = foco central, 2 = fade final
 func _ready():
 	# Pantalla negra inicial
 	$OverlayNegro.color = Color(0,0,0,1)
-	# Configurar reflectores
-	$SpotLeft.modulate.a = 0
-	$SpotRight.modulate.a = 0
-
-	$SpotLeft.size = spot_tamaño
-	$SpotRight.size = spot_tamaño
-
-	# Posiciones iniciales fuera de pantalla
-	$SpotLeft.position = Vector2(-spot_tamaño.x, size.y * altura_spot)
-	$SpotRight.position = Vector2(size.x, size.y * altura_spot)
 
 func _process(delta):
 	tiempo += delta
@@ -32,13 +22,12 @@ func _process(delta):
 	if t < 0.33:
 		var k = t / 0.33
 
-		$SpotLeft.modulate.a = k
-		$SpotRight.modulate.a = k
+		
+		
 
 		# Mover hacia el centro
-		$SpotLeft.position.x = lerp(-spot_tamaño.x, size.x * 0.35, k)
-		$SpotRight.position.x = lerp(size.x, size.x * 0.65, k)
-		print("reflector der", $SpotLeft.position.x)
+		#$SpotLeft.position.x = lerp(-spot_tamaño.x, size.x * 0.35, k)
+		#$SpotRight.position.x = lerp(size.x, size.x * 0.65, k)
 	# -------------------------------
 	# FASE 1: reflectores se centran
 	# -------------------------------
