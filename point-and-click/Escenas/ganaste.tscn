@@ -12,19 +12,20 @@ scale = Vector2(1, 0.987)
 texture = ExtResource("2_y31e3")
 
 [node name="Button_Volver" type="Button" parent="."]
-visible = false
-offset_left = 1088.0
-offset_top = 32.0
-offset_right = 1125.0
-offset_bottom = 65.0
-text = "II"
+offset_left = 1724.0
+offset_top = 974.0
+offset_right = 1761.0
+offset_bottom = 1007.0
+text = "VOLVER
+A 
+JUGAR"
 
 [node name="TiempoLabel" type="Label" parent="."]
 offset_left = 248.0
 offset_top = 80.0
 offset_right = 320.0
 offset_bottom = 128.0
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 35
 text = "1ro"
 horizontal_alignment = 1
 
@@ -33,7 +34,7 @@ offset_left = 256.0
 offset_top = 192.0
 offset_right = 320.0
 offset_bottom = 256.0
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 35
 text = "2do"
 horizontal_alignment = 1
 
@@ -42,6 +43,6 @@ offset_left = 256.0
 offset_top = 336.0
 offset_right = 320.0
 offset_bottom = 386.0
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 35
 text = "3ro"
 horizontal_alignment = 1

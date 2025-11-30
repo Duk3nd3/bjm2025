@@ -97,6 +97,8 @@ func _unhandled_input(event):
 				if pair.can_swap:
 					print("ACERTASTE en el icono ", pair.main_sprite.name, "!")
 					score += 100
+					$Sonidos/good.play()
+					
 					print("Puntuacion: ", score)
 					
 					var temp_pos = pair.main_sprite.position
@@ -116,6 +118,7 @@ func _unhandled_input(event):
 
 		if not hit_detected:
 			print("ERRASTE! Perdes una vida.")
+			$Sonidos/bad.play()
 			lose_a_life()
 
 # --- El resto de tu código se queda igual ---
@@ -159,8 +162,7 @@ func victory_sequence():
 	show_victory_poster()
 	
 	await get_tree().create_timer(3.0).timeout
-	print("Han pasado 5 segundos en total. Cambiando de escena...")
-	
+	print("Han pasado 5 segundos en total. Cambiando de escena...")	
 	get_tree().change_scene_to_file("res://Escenas/ganaste.tscn")
 
 func open_curtains():
@@ -174,6 +176,7 @@ func open_curtains():
 func show_victory_poster():
 	if poster_radagast:
 		var tween = create_tween()
+		$Sonidos/rada.play()
 		tween.tween_property(poster_radagast, "modulate:a", 1.0, 1.5)
 
 #FUNCIONES DEL SISTEMA DE VIDAS
