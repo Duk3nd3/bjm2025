@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bv178gt3okdq"]
+[gd_scene load_steps=23 format=3 uid="uid://bv178gt3okdq"]
 
 [ext_resource type="Script" uid="uid://bgmavv7j5xy2o" path="res://Scripts/gameplay.gd" id="1_aod76"]
 [ext_resource type="Texture2D" uid="uid://dfsdbwci8xij5" path="res://Assets/PROPS/PROPS TERMINADOS/personaje.png" id="2_4u0gh"]
@@ -10,9 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://c7ypx41ykpk73" path="res://Assets/FONDOS/Fondo_Piso.png" id="4_suyv4"]
 [ext_resource type="Texture2D" uid="uid://c0l0byngiupol" path="res://Assets/PROPS/PROPS TERMINADOS/varita_color.png" id="5_cowoy"]
 [ext_resource type="Texture2D" uid="uid://c6fjui7e0oowf" path="res://Assets/PROPS/PROPS TERMINADOS/varita_gris.png" id="6_4u0gh"]
+[ext_resource type="Script" uid="uid://ddxourindwfly" path="res://Escenas/capa_gris.gd" id="7_360n6"]
 [ext_resource type="Texture2D" uid="uid://8u55qniyjm6c" path="res://Assets/PROPS/PROPS TERMINADOS/capa_color.png" id="7_y3e6i"]
 [ext_resource type="Texture2D" uid="uid://cqieua7o4dnp8" path="res://Assets/PROPS/PROPS TERMINADOS/capa_gris.png" id="8_cowoy"]
 [ext_resource type="Texture2D" uid="uid://dg3o7cu1anayi" path="res://Assets/PROPS/PROPS TERMINADOS/life_icon.png" id="8_suyv4"]
+[ext_resource type="Script" uid="uid://cxsjv6vttqp6v" path="res://Escenas/varita_gris.gd" id="10_j5mtr"]
+[ext_resource type="Script" uid="uid://dtxaamq3sixx3" path="res://Escenas/galera_gris.gd" id="11_elp5i"]
 [ext_resource type="Texture2D" uid="uid://vnkkmivhdr8w" path="res://Assets/PROPS/PROPS TERMINADOS/poster_radagast.png" id="11_y3e6i"]
 [ext_resource type="AudioStream" uid="uid://df4r0ue7o5vih" path="res://Assets/SONIDOS/ok2.wav" id="15_suyv4"]
 [ext_resource type="AudioStream" uid="uid://8j0y7pj6qt4a" path="res://Assets/SONIDOS/not.wav" id="16_1rnou"]
@@ -50,6 +53,7 @@ z_index = -1
 position = Vector2(1209.9999, 410)
 scale = Vector2(0.66571504, 0.66571504)
 texture = ExtResource("8_cowoy")
+script = ExtResource("7_360n6")
 
 [node name="PosterRadagast" type="Sprite2D" parent="."]
 visible = false
@@ -61,6 +65,7 @@ texture = ExtResource("11_y3e6i")
 position = Vector2(1090, 120)
 scale = Vector2(0.8564851, 0.8564851)
 texture = ExtResource("6_4u0gh")
+script = ExtResource("10_j5mtr")
 
 [node name="VictoryTimer" type="Timer" parent="."]
 wait_time = 3.0
@@ -77,6 +82,7 @@ position = Vector2(1190.0001, 80)
 rotation = -0.0075304573
 scale = Vector2(0.7418247, 0.7364118)
 texture = ExtResource("4_4u0gh")
+script = ExtResource("11_elp5i")
 
 [node name="galeraColor" type="Sprite2D" parent="."]
 z_index = 1
