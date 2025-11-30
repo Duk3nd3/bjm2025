@@ -1,27 +1,42 @@
-[gd_scene load_steps=3 format=3 uid="uid://be2wrmqm4l5xo"]
+[gd_scene load_steps=4 format=3 uid="uid://be2wrmqm4l5xo"]
 
 [ext_resource type="Script" uid="uid://bwxmxc0gwjmow" path="res://Scripts/perdiste.gd" id="1_7jrqc"]
-[ext_resource type="Texture2D" uid="uid://bhq1k3obf73m0" path="res://Assets/FONDOS/FAILED/FONDO PERDER.png" id="2_7jrqc"]
+[ext_resource type="Texture2D" uid="uid://brnfiiiyvhfja" path="res://Assets/FONDOS/FAILED/FONDO PERDER.png" id="2_7jrqc"]
+[ext_resource type="AudioStream" uid="uid://bpgv48llid3ia" path="res://Assets/SONIDOS/perder2.wav" id="3_k3a7n"]
 
 [node name="Perdiste" type="Node2D"]
+position = Vector2(10, 0)
 script = ExtResource("1_7jrqc")
 
 [node name="Derrota" type="Sprite2D" parent="."]
-position = Vector2(576.49994, 321)
-scale = Vector2(0.608, 0.6)
+position = Vector2(950, 530)
+scale = Vector2(1, 0.987)
 texture = ExtResource("2_7jrqc")
 
 [node name="Label" type="Label" parent="Derrota"]
-offset_left = -248.0
-offset_top = -88.0
-offset_right = 262.0
-offset_bottom = 36.0
+offset_left = -279.0
+offset_top = -480.24313
+offset_right = 231.0
+offset_bottom = -356.24313
 theme_override_font_sizes/font_size = 90
-text = "PERDISTE =("
+text = "PERDISTE!!"
 
-[node name="Button_Volver" type="Button" parent="."]
-offset_left = 1088.0
-offset_top = 32.0
-offset_right = 1125.0
-offset_bottom = 65.0
-text = "II"
+[node name="Button_Volver" type="Button" parent="Derrota"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -184.0
+offset_top = -1012.1378
+offset_right = -67.0
+offset_bottom = -935.1378
+grow_horizontal = 2
+grow_vertical = 2
+text = "VOLVER 
+AL 
+MENU INICIAL"
+
+[node name="perder" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_k3a7n")
+autoplay = true

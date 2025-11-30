@@ -1,108 +1,48 @@
-<<<<<<< HEAD
-[gd_scene load_steps=5 format=3 uid="uid://dygw8m7qpp8hy"]
+[gd_scene load_steps=3 format=3 uid="uid://bkbi7vqbrlw5w"]
 
 [ext_resource type="Script" uid="uid://d1o657genxv7l" path="res://Scripts/ganaste.gd" id="1_y31e3"]
-[ext_resource type="Texture2D" uid="uid://0830hy8xihq2" path="res://Assets/FONDOS/WIN/FONDO GANAR.png" id="2_y31e3"]
-=======
-[gd_scene load_steps=6 format=3 uid="uid://dygw8m7qpp8hy"]
-
-[ext_resource type="Script" uid="uid://d1o657genxv7l" path="res://Scripts/ganaste.gd" id="1_y31e3"]
-[ext_resource type="Texture2D" uid="uid://0830hy8xihq2" path="res://Assets/FONDOS/WIN/FONDO GANAR.png" id="2_y31e3"]
-[ext_resource type="Script" uid="uid://vl7hep41gsd7" path="res://Scripts/efecto.gd" id="3_pyce0"]
->>>>>>> 5766739c5d3f8b944d4a7f161317875abb58660b
-[ext_resource type="Texture2D" uid="uid://bgq4f3mhk64up" path="res://Assets/Cursor.png" id="5_d8078"]
-[ext_resource type="Script" uid="uid://cddq21hv1o5y2" path="res://Scripts/cursor.gd" id="6_wbu58"]
+[ext_resource type="Texture2D" uid="uid://elgu0inpypll" path="res://Assets/FONDOS/WIN/FONDO GANAR.png" id="2_y31e3"]
 
 [node name="Ganaste" type="Node2D"]
 script = ExtResource("1_y31e3")
 
 [node name="Victoria" type="Sprite2D" parent="."]
-position = Vector2(576.00006, 328)
-scale = Vector2(0.6, 0.596)
+position = Vector2(963, 535)
+scale = Vector2(1, 0.987)
 texture = ExtResource("2_y31e3")
 
-[node name="Label" type="Label" parent="."]
-offset_left = 88.0
-offset_top = 168.0
-offset_right = 732.0
-offset_bottom = 304.0
-theme_override_font_sizes/font_size = 50
-
 [node name="Button_Volver" type="Button" parent="."]
-offset_left = 1088.0
-offset_top = 32.0
-offset_right = 1125.0
-offset_bottom = 65.0
-text = "II"
-
-<<<<<<< HEAD
-[node name="Cursor" type="Sprite2D" parent="."]
-position = Vector2(1232, 488)
-rotation = 0.7295476
-=======
-[node name="Efecto" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 936.0
-offset_top = -168.0
-offset_right = 976.0
-offset_bottom = -128.0
-script = ExtResource("3_pyce0")
-duracion_total = 5.0
-"spot_tamaño" = Vector2(400, 400)
-
-[node name="OverlayNegro" type="ColorRect" parent="Efecto"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -6.0000005
-anchor_top = -4.0
-anchor_right = -6.0000005
-anchor_bottom = -4.0
-offset_left = -696.0
-offset_top = 328.0
-offset_right = 456.0
-offset_bottom = 976.0
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(575.99994, 311.99997)
-rotation = 0.7221261
->>>>>>> 5766739c5d3f8b944d4a7f161317875abb58660b
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("5_d8078")
-flip_v = true
-script = ExtResource("6_wbu58")
-stiffness = 20.0
-
-[node name="GanasteLabel" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 1724.0
+offset_top = 974.0
+offset_right = 1761.0
+offset_bottom = 1007.0
+text = "VOLVER
+A 
+JUGAR"
 
 [node name="TiempoLabel" type="Label" parent="."]
-offset_left = 80.0
-offset_top = 312.0
-offset_right = 243.0
-offset_bottom = 362.0
-theme_override_font_sizes/font_size = 36
-text = "Tiempo --"
+offset_left = 248.0
+offset_top = 80.0
+offset_right = 320.0
+offset_bottom = 128.0
+theme_override_font_sizes/font_size = 35
+text = "1ro"
+horizontal_alignment = 1
 
 [node name="PuntajeLabel" type="Label" parent="."]
-offset_left = 72.0
-offset_top = 384.0
-offset_right = 206.0
-offset_bottom = 434.0
-theme_override_font_sizes/font_size = 36
-text = "Puntaje"
+offset_left = 256.0
+offset_top = 192.0
+offset_right = 320.0
+offset_bottom = 256.0
+theme_override_font_sizes/font_size = 35
+text = "2do"
+horizontal_alignment = 1
 
 [node name="VidasLabel" type="Label" parent="."]
-offset_left = 72.0
-offset_top = 464.0
-offset_right = 165.0
-offset_bottom = 514.0
-theme_override_font_sizes/font_size = 36
-text = "Vidas"
-
-[node name="FadeRect" type="ColorRect" parent="."]
-offset_left = 16.0
-offset_top = -104.0
-offset_right = 56.0
-offset_bottom = -64.0
+offset_left = 256.0
+offset_top = 336.0
+offset_right = 320.0
+offset_bottom = 386.0
+theme_override_font_sizes/font_size = 35
+text = "3ro"
+horizontal_alignment = 1

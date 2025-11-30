@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://denpjnq1kv12" path="res://Scripts/menu_inicial.gd" id="1_ko3br"]
 [ext_resource type="Texture2D" uid="uid://0ullflgbwkya" path="res://Assets/FONDOS/FONDO JUEGO/Fondo_Placeholder.png" id="2_pm8da"]
-[ext_resource type="Texture2D" uid="uid://bgq4f3mhk64up" path="res://Assets/Cursor.png" id="3_pm8da"]
-[ext_resource type="Script" uid="uid://cddq21hv1o5y2" path="res://Scripts/cursor.gd" id="4_j5por"]
+[ext_resource type="Texture2D" uid="uid://dx84do8yk3yf7" path="res://Assets/GUI/Cursor.png" id="3_pm8da"]
+[ext_resource type="Script" path="res://Scripts/cursor.gd" id="4_j5por"]
 [ext_resource type="Texture2D" uid="uid://hdyodx1lxwey" path="res://Assets/FONDOS/FONDO JUEGO/Fondo_Cortinas_Placeholder.png" id="5_j5por"]
 [ext_resource type="Texture2D" uid="uid://cu54fy47eyy1w" path="res://Assets/ILUMINACION/spark.png" id="6_tkmgy"]
 
@@ -21,6 +21,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 208.0
+offset_top = 232.0
+offset_right = 208.0
+offset_bottom = 232.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ko3br")
@@ -31,7 +35,6 @@ texture = ExtResource("2_pm8da")
 
 [node name="FondoCortinasPlaceholder" type="Sprite2D" parent="FondoPlaceholder"]
 position = Vector2(0, -40)
-scale = Vector2(0.81, 0.81)
 texture = ExtResource("5_j5por")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="FondoPlaceholder"]

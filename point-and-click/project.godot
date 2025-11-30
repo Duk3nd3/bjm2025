@@ -19,6 +19,11 @@ config/icon="uid://bfwyddcgdmigw"
 
 TimerData="*res://Scripts/TimerData.gd"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
 [editor]
 
 movie_writer/movie_file="C:/Users/RoCso/Desktop/GameJam 2025/bjm2025/primeras_pruebas.avi"
