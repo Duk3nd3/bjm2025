@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bv178gt3okdq"]
+[gd_scene load_steps=12 format=3 uid="uid://bv178gt3okdq"]
 
 [ext_resource type="Script" uid="uid://bgmavv7j5xy2o" path="res://Scripts/gameplay.gd" id="1_aod76"]
 [ext_resource type="Texture2D" uid="uid://4y85hlkhek6i" path="res://Assets/personaje.png" id="2_4u0gh"]
@@ -10,9 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://b1ngbmsb1785c" path="res://Assets/capa_color.png" id="7_y3e6i"]
 [ext_resource type="Texture2D" uid="uid://dj5xtnqkl3a4c" path="res://Assets/capa_gris.png" id="8_cowoy"]
 [ext_resource type="Texture2D" uid="uid://b6wdeujn8ocd0" path="res://Assets/life_icon.png" id="8_suyv4"]
+[ext_resource type="Texture2D" uid="uid://jxylvb0rvnp7" path="res://Assets/poster_radagast.png" id="11_y3e6i"]
 
 [node name="gameplay" type="Node2D"]
-position = Vector2(300, 230)
+position = Vector2(388, 214)
 script = ExtResource("1_aod76")
 
 [node name="Cuerpo" type="Sprite2D" parent="."]
@@ -37,9 +38,10 @@ scale = Vector2(0.7418247, 0.73641187)
 texture = ExtResource("4_4u0gh")
 
 [node name="varitaColor" type="Sprite2D" parent="."]
-position = Vector2(330, 140)
-rotation = -0.2292935
-scale = Vector2(0.5872747, 0.5872747)
+z_index = -1
+position = Vector2(293, -36)
+rotation = -0.29799056
+scale = Vector2(0.856, 0.856)
 texture = ExtResource("5_cowoy")
 
 [node name="varitaGris" type="Sprite2D" parent="."]
@@ -50,9 +52,9 @@ texture = ExtResource("6_4u0gh")
 
 [node name="capaColor" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(203.00012, 561)
-rotation = 0.41519472
-scale = Vector2(0.39995047, 0.39995047)
+position = Vector2(320.00012, 420.00006)
+rotation = -0.016743537
+scale = Vector2(0.65362126, 0.65362126)
 texture = ExtResource("7_y3e6i")
 
 [node name="capaGris" type="Sprite2D" parent="."]
@@ -98,3 +100,13 @@ z_index = -1
 position = Vector2(1132, -44.999924)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("8_suyv4")
+
+[node name="VictoryTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="PosterRadagast" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(837, 181)
+scale = Vector2(0.6890751, 0.6890751)
+texture = ExtResource("11_y3e6i")
