@@ -12,7 +12,7 @@ extends Node2D
 @onready var lives_container: HBoxContainer = $LivesContainer
 var life_icons: Array[Sprite2D] = []
 
-# Referencia al poster
+#Referencia al poster
 @onready var poster_radagast: Sprite2D = $PosterRadagast
 
 #VARIABLES DE ESTADO DEL JUEGO
@@ -24,20 +24,20 @@ var score = 0 #Puntaje inicial
 func _ready():
 	print("Juego iniciado. Tenes 5 vidas.")
 	
-	# MODIFICADO: Añadimos una comprobación de seguridad
+	#Anadimos una comprobacion de seguridad
 	if poster_radagast:
-		# Preparamos el poster para que aparezca con un efecto de desvanecimiento
-		poster_radagast.modulate.a = 0.0 # Lo hacemos completamente transparente
-		poster_radagast.visible = true # Lo hacemos visible pero invisible (necesario para el tween)
+		#Preparamos el poster para que aparezca con un efecto de desvanecimiento
+		poster_radagast.modulate.a = 0.0 #Lo hacemos completamente transparente
+		poster_radagast.visible = true #Lo hacemos visible pero invisible (necesario para el tween)
 	else:
-		print("ADVERTENCIA: El nodo PosterRadagast no fue encontrado en la escena.")
+		print("OJO: El nodo PosterRadagast no fue encontrado en la escena.")
 	
 	life_icons.clear()
 	for child in lives_container.get_children():
 		if child is Sprite2D:
 			life_icons.append(child)
 		else:
-			print("ADVERTENCIA: Se encontro un nodo que no es Sprite2D en LivesContainer: ", child.name)
+			print("OJO: Se encontro un nodo que no es Sprite2D en LivesContainer: ", child.name)
 	
 	swap_pairs = [
 		{"main_sprite": galeraColor, "gray_sprite": galeraGris, "can_swap": true},
@@ -87,7 +87,7 @@ func _unhandled_input(event):
 			print("ERRASTE! Perdes una vida.")
 			lose_a_life()
 
-# --- NUEVA LÓGICA DE VICTORIA CON AWAIT ---
+#LOGICA DE VICTORIA CON AWAIT
 func check_victory_condition():
 	var has_won = true
 	for pair in swap_pairs:
@@ -98,10 +98,10 @@ func check_victory_condition():
 	if has_won:
 		print("¡FELICIDADES, GANASTE!")
 		
-		# 1. Apagamos el procesamiento de input
+		#1.Apagamos el procesamiento de input
 		set_process_unhandled_input(false)
 		
-		# 2. Calculamos la puntuación final como antes
+		#2.Calculamos la puntuacion final como antes
 		var bonus = 0
 		match lives:
 			5: bonus = 500
@@ -115,41 +115,41 @@ func check_victory_condition():
 		print("Bonus de ", bonus, " puntos por terminar con ", lives, " vidas.")
 		print("Puntuacion final: ", score)
 		
-		# 3. Guardamos los datos para la pantalla final
+		#3.Guardamos los datos para la pantalla final
 		TimerData.tiempo_total = time
 		TimerData.lives = lives
 		TimerData.score = score
 		
-		# 4. Iniciamos la secuencia de victoria con pausas
+		#4.Iniciamos la secuencia de victoria con pausas
 		await victory_sequence()
 
-# --- NUEVA FUNCIÓN DE SECUENCIA DE VICTORIA ---
+#SECUENCIA DE VICTORIA
 func victory_sequence():
-	# Pausa el juego por 2 segundos
+	#Pausa el juego por 2 segundos
 	await get_tree().create_timer(2.0).timeout
 	print("Han pasado 2 segundos. Mostrando poster...")
 	
-	# MODIFICADO: Añadimos una comprobación de seguridad
+	#Anadimos una comprobacion de seguridad
 	if poster_radagast:
-		# Muestra el poster con el efecto de desvanecimiento
+		#Muestra el poster con el efecto de desvanecimiento
 		show_victory_poster()
 	
-	# Pausa el juego por 3 segundos más (para un total de 5)
+	#Pausa el juego por 3 segundos mas (para un total de 5)
 	await get_tree().create_timer(3.0).timeout
 	print("Han pasado 5 segundos en total. Cambiando de escena...")
 	
-	# Cambia a la escena de victoria
+	#Cambia a la escena de victoria
 	get_tree().change_scene_to_file("res://Escenas/ganaste.tscn")
 
-# --- FUNCIÓN MODIFICADA (ya no inicia el timer) ---
-# Función que muestra el poster con una animación
+#Ya no inicia el timer
+#Funcion que muestra el poster con una animacion
 func show_victory_poster():
-	# Creamos una animación (Tween)
+	#Creamos una animacion (Tween)
 	var tween = create_tween()
-	# Animamos la propiedad 'modulate:a' (transparencia) de 0 a 1 en 1.5 segundos
+	#Animamos la propiedad 'modulate:a' (transparencia) de 0 a 1 en 1.5 segundos
 	tween.tween_property(poster_radagast, "modulate:a", 1.0, 1.5)
 
-#FUNCIONES DEL SISTEMA DE VIDAS (SIN CAMBIOS)
+#FUNCIONES DEL SISTEMA DE VIDAS
 func lose_a_life():
 	lives -= 1
 	update_lives_display()
