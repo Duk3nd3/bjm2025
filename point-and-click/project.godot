@@ -23,8 +23,7 @@ TimerData="*res://Scripts/TimerData.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-mouse_cursor/custom_image="uid://dfe1ufoj76cg4"
 
 [editor]
 
-movie_writer/movie_file="C:/Users/feelg/Desktop/BGJ2025/bjm2025/point-and-click/Movies/primeras_pruebas.avi"
+movie_writer/movie_file="C:/Users/RoCso/Desktop/GameJam 2025/bjm2025/primeras_pruebas.avi"

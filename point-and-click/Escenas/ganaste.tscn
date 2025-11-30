@@ -1,26 +1,47 @@
-[gd_scene load_steps=3 format=3 uid="uid://dygw8m7qpp8hy"]
+[gd_scene load_steps=3 format=3 uid="uid://bkbi7vqbrlw5w"]
 
 [ext_resource type="Script" uid="uid://d1o657genxv7l" path="res://Scripts/ganaste.gd" id="1_y31e3"]
-[ext_resource type="Texture2D" uid="uid://bkw7ko0c14vd2" path="res://Assets/victoria.png" id="2_pyce0"]
+[ext_resource type="Texture2D" uid="uid://elgu0inpypll" path="res://Assets/FONDOS/WIN/FONDO GANAR.png" id="2_y31e3"]
 
 [node name="Ganaste" type="Node2D"]
 script = ExtResource("1_y31e3")
 
 [node name="Victoria" type="Sprite2D" parent="."]
-position = Vector2(885, 515)
-scale = Vector2(1.97, 1.95)
-texture = ExtResource("2_pyce0")
-
-[node name="Label" type="Label" parent="."]
-offset_left = 309.0
-offset_top = 223.0
-offset_right = 953.0
-offset_bottom = 359.0
-theme_override_font_sizes/font_size = 50
+position = Vector2(963, 535)
+scale = Vector2(1, 0.987)
+texture = ExtResource("2_y31e3")
 
 [node name="Button_Volver" type="Button" parent="."]
+visible = false
 offset_left = 1088.0
 offset_top = 32.0
 offset_right = 1125.0
 offset_bottom = 65.0
 text = "II"
+
+[node name="TiempoLabel" type="Label" parent="."]
+offset_left = 248.0
+offset_top = 80.0
+offset_right = 320.0
+offset_bottom = 128.0
+theme_override_font_sizes/font_size = 20
+text = "1ro"
+horizontal_alignment = 1
+
+[node name="PuntajeLabel" type="Label" parent="."]
+offset_left = 256.0
+offset_top = 192.0
+offset_right = 320.0
+offset_bottom = 256.0
+theme_override_font_sizes/font_size = 20
+text = "2do"
+horizontal_alignment = 1
+
+[node name="VidasLabel" type="Label" parent="."]
+offset_left = 256.0
+offset_top = 336.0
+offset_right = 320.0
+offset_bottom = 386.0
+theme_override_font_sizes/font_size = 20
+text = "3ro"
+horizontal_alignment = 1
