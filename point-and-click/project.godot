@@ -19,6 +19,11 @@ config/icon="uid://bfwyddcgdmigw"
 
 TimerData="*res://Scripts/TimerData.gd"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
 [editor]
 
 movie_writer/movie_file="C:/Users/feelg/Desktop/BGJ2025/bjm2025/point-and-click/Movies/primeras_pruebas.avi"

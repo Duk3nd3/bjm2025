@@ -1,12 +1,12 @@
 extends Node2D
 
 #REFERENCIAS A LOS ICONITOS DEL JUEGO
-@onready var blue_icon: Sprite2D = $BlueIcon
-@onready var gray_icon1: Sprite2D = $GrayIcon1
-@onready var green_icon: Sprite2D = $GreenIcon
-@onready var gray_icon2: Sprite2D = $GrayIcon2
-@onready var red_icon: Sprite2D = $RedIcon
-@onready var gray_icon3: Sprite2D = $GrayIcon3
+@onready var galeraColor: Sprite2D = $galeraColor
+@onready var galeraGris: Sprite2D = $galeraGris
+@onready var varitaColor: Sprite2D = $varitaColor
+@onready var varitaGris: Sprite2D = $varitaGris
+@onready var capaColor: Sprite2D = $capaColor
+@onready var capaGris: Sprite2D = $capaGris
 
 #REFERENCIAS A LOS ICONITOS DE VIDA
 @onready var lives_container: HBoxContainer = $LivesContainer
@@ -26,12 +26,12 @@ func _ready():
 		if child is Sprite2D:
 			life_icons.append(child)
 		else:
-			print("ADVERTENCIA: Se encontro un nodo que no es Sprite2D en LivesContainer: ", child.name)
+			print("OJO: Se encontro un nodo que no es Sprite2D en LivesContainer: ", child.name)
 	
 	swap_pairs = [
-		{"main_sprite": blue_icon, "gray_sprite": gray_icon1, "can_swap": true},
-		{"main_sprite": green_icon, "gray_sprite": gray_icon2, "can_swap": true},
-		{"main_sprite": red_icon, "gray_sprite": gray_icon3, "can_swap": true}
+		{"main_sprite": galeraColor, "gray_sprite": galeraGris, "can_swap": true},
+		{"main_sprite": varitaColor, "gray_sprite": varitaGris, "can_swap": true},
+		{"main_sprite": capaColor, "gray_sprite": capaGris, "can_swap": true}
 	]
 	
 	update_lives_display()
@@ -59,9 +59,20 @@ func _unhandled_input(event):
 					score += 100
 					print("Puntuacion: ", score)
 					
+					#CODIGO DE INTERCAMBIO
+					#Guardamos la posicion Y la rotacion del sprite principal
 					var temp_pos = pair.main_sprite.position
+					var temp_rot = pair.main_sprite.rotation
+
+					#Movemos y rotamos el sprite principal a la posicion y rotacion del sprite gris
 					pair.main_sprite.position = pair.gray_sprite.position
+					pair.main_sprite.rotation = pair.gray_sprite.rotation
+
+					#Movemos y rotamos el sprite gris a la posicion y rotacion que guardamos
 					pair.gray_sprite.position = temp_pos
+					pair.gray_sprite.rotation = temp_rot
+					#FIN DEL CÓDIGO CORREGIDO
+					
 					pair.can_swap = false
 					
 					#Despues de un intercambio, comprobamos si se ha ganado
@@ -76,7 +87,7 @@ func _unhandled_input(event):
 			print("ERRASTE! Perdes una vida.")
 			lose_a_life()
 
-#FUNCION PARA COMPROBAR LA VICTORIA (MODIFICADA)
+#FUNCION PARA COMPROBAR LA VICTORIA
 func check_victory_condition():
 	#Asumimos que el jugador gano
 	var has_won = true

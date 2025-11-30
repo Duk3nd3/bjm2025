@@ -1,40 +1,65 @@
-[gd_scene load_steps=9 format=3 uid="uid://bv178gt3okdq"]
+[gd_scene load_steps=11 format=3 uid="uid://bv178gt3okdq"]
 
 [ext_resource type="Script" uid="uid://bgmavv7j5xy2o" path="res://Scripts/gameplay.gd" id="1_aod76"]
-[ext_resource type="Texture2D" uid="uid://bfwyddcgdmigw" path="res://Assets/blue_icon.png" id="2_cowoy"]
-[ext_resource type="Texture2D" uid="uid://dt3b6vdbjcxgk" path="res://Assets/gray_icon_1.png" id="3_4u0gh"]
-[ext_resource type="Texture2D" uid="uid://cnav6a5op3hyw" path="res://Assets/green_icon.png" id="4_y3e6i"]
-[ext_resource type="Texture2D" uid="uid://tvr8fv12llbu" path="res://Assets/gray_icon_2.png" id="5_wu1k5"]
-[ext_resource type="Texture2D" uid="uid://bsyjang528kf" path="res://Assets/red_icon.png" id="6_m1bpj"]
-[ext_resource type="Texture2D" uid="uid://vxhcx6ojo3d0" path="res://Assets/gray_icon_3.png" id="7_64m0a"]
-[ext_resource type="Texture2D" uid="uid://ce2xramffm58t" path="res://Assets/life_icon.png" id="8_suyv4"]
+[ext_resource type="Texture2D" uid="uid://4y85hlkhek6i" path="res://Assets/personaje.png" id="2_4u0gh"]
+[ext_resource type="Texture2D" uid="uid://dg8n1h0k0kyuc" path="res://Assets/galera_color.png" id="3_cowoy"]
+[ext_resource type="Texture2D" uid="uid://5cmhpkaghmg2" path="res://Assets/Fondo Armado_Placeholder.png" id="3_y3e6i"]
+[ext_resource type="Texture2D" uid="uid://b6hb313qgvejv" path="res://Assets/galera_gris.png" id="4_4u0gh"]
+[ext_resource type="Texture2D" uid="uid://bfjvxqmgi27rh" path="res://Assets/varita_color.png" id="5_cowoy"]
+[ext_resource type="Texture2D" uid="uid://cgtlls3a2f1r8" path="res://Assets/varita_gris.png" id="6_4u0gh"]
+[ext_resource type="Texture2D" uid="uid://b1ngbmsb1785c" path="res://Assets/capa_color.png" id="7_y3e6i"]
+[ext_resource type="Texture2D" uid="uid://dj5xtnqkl3a4c" path="res://Assets/capa_gris.png" id="8_cowoy"]
+[ext_resource type="Texture2D" uid="uid://b6wdeujn8ocd0" path="res://Assets/life_icon.png" id="8_suyv4"]
 
 [node name="gameplay" type="Node2D"]
+position = Vector2(300, 230)
 script = ExtResource("1_aod76")
 
-[node name="BlueIcon" type="Sprite2D" parent="."]
-position = Vector2(262, 113)
-texture = ExtResource("2_cowoy")
+[node name="Cuerpo" type="Sprite2D" parent="."]
+position = Vector2(1190, 340)
+scale = Vector2(0.71427715, 0.71427715)
+texture = ExtResource("2_4u0gh")
 
-[node name="GrayIcon1" type="Sprite2D" parent="."]
-position = Vector2(258, 314)
-texture = ExtResource("3_4u0gh")
+[node name="fondoArmado" type="Sprite2D" parent="."]
+position = Vector2(938, 264)
+texture = ExtResource("3_y3e6i")
 
-[node name="GreenIcon" type="Sprite2D" parent="."]
-position = Vector2(593, 116)
-texture = ExtResource("4_y3e6i")
+[node name="galeraColor" type="Sprite2D" parent="."]
+position = Vector2(679.99994, 469.99994)
+rotation = 2.5045295
+scale = Vector2(0.7009131, 0.7009131)
+texture = ExtResource("3_cowoy")
 
-[node name="GrayIcon2" type="Sprite2D" parent="."]
-position = Vector2(595, 314)
-texture = ExtResource("5_wu1k5")
+[node name="galeraGris" type="Sprite2D" parent="."]
+position = Vector2(1190.0001, 80)
+rotation = -0.0075304573
+scale = Vector2(0.7418247, 0.73641187)
+texture = ExtResource("4_4u0gh")
 
-[node name="RedIcon" type="Sprite2D" parent="."]
-position = Vector2(908, 106)
-texture = ExtResource("6_m1bpj")
+[node name="varitaColor" type="Sprite2D" parent="."]
+position = Vector2(330, 140)
+rotation = -0.2292935
+scale = Vector2(0.5872747, 0.5872747)
+texture = ExtResource("5_cowoy")
 
-[node name="GrayIcon3" type="Sprite2D" parent="."]
-position = Vector2(915, 319)
-texture = ExtResource("7_64m0a")
+[node name="varitaGris" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1090, 120.00001)
+scale = Vector2(0.8564851, 0.8564851)
+texture = ExtResource("6_4u0gh")
+
+[node name="capaColor" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(203.00012, 561)
+rotation = 0.41519472
+scale = Vector2(0.39995047, 0.39995047)
+texture = ExtResource("7_y3e6i")
+
+[node name="capaGris" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1209.9999, 410)
+scale = Vector2(0.66571504, 0.66571504)
+texture = ExtResource("8_cowoy")
 
 [node name="LivesContainer" type="HBoxContainer" parent="."]
 anchors_preset = 2
@@ -45,26 +70,31 @@ offset_right = 40.0
 grow_vertical = 0
 
 [node name="Life1" type="Sprite2D" parent="LivesContainer"]
-position = Vector2(61, 592)
+z_index = -1
+position = Vector2(770, -49.999985)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("8_suyv4")
 
 [node name="Life2" type="Sprite2D" parent="LivesContainer"]
-position = Vector2(149, 595)
+z_index = -1
+position = Vector2(858, -46.999985)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("8_suyv4")
 
 [node name="Life3" type="Sprite2D" parent="LivesContainer"]
-position = Vector2(240.00003, 596.00006)
+z_index = -1
+position = Vector2(949, -45.999924)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("8_suyv4")
 
 [node name="Life4" type="Sprite2D" parent="LivesContainer"]
-position = Vector2(331, 598.00006)
+z_index = -1
+position = Vector2(1040, -43.999924)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("8_suyv4")
 
 [node name="Life5" type="Sprite2D" parent="LivesContainer"]
-position = Vector2(422.99997, 597.00006)
+z_index = -1
+position = Vector2(1132, -44.999924)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("8_suyv4")

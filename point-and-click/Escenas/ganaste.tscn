@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://dygw8m7qpp8hy"]
 
 [ext_resource type="Script" uid="uid://d1o657genxv7l" path="res://Scripts/ganaste.gd" id="1_y31e3"]
-[ext_resource type="Texture2D" uid="uid://d3jxf2eoa1ri1" path="res://Assets/victoria.png" id="2_pyce0"]
+[ext_resource type="Texture2D" uid="uid://bkw7ko0c14vd2" path="res://Assets/victoria.png" id="2_pyce0"]
 
 [node name="Ganaste" type="Node2D"]
 script = ExtResource("1_y31e3")
 
 [node name="Victoria" type="Sprite2D" parent="."]
-position = Vector2(582.25, 329.75)
+position = Vector2(885, 515)
 scale = Vector2(1.97, 1.95)
 texture = ExtResource("2_pyce0")
 
