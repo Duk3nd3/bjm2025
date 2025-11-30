@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bv178gt3okdq"]
+[gd_scene load_steps=12 format=3 uid="uid://bv178gt3okdq"]
 
 [ext_resource type="Script" uid="uid://bgmavv7j5xy2o" path="res://Scripts/gameplay.gd" id="1_aod76"]
+[ext_resource type="Texture2D" uid="uid://bh6sbk6hs7nrv" path="res://Assets/2025-11-29 19_32_10-image.png" id="2_4u0gh"]
 [ext_resource type="Texture2D" uid="uid://bfwyddcgdmigw" path="res://Assets/blue_icon.png" id="2_cowoy"]
 [ext_resource type="Texture2D" uid="uid://dt3b6vdbjcxgk" path="res://Assets/gray_icon_1.png" id="3_4u0gh"]
 [ext_resource type="Texture2D" uid="uid://cnav6a5op3hyw" path="res://Assets/green_icon.png" id="4_y3e6i"]
@@ -8,32 +9,45 @@
 [ext_resource type="Texture2D" uid="uid://bsyjang528kf" path="res://Assets/red_icon.png" id="6_m1bpj"]
 [ext_resource type="Texture2D" uid="uid://vxhcx6ojo3d0" path="res://Assets/gray_icon_3.png" id="7_64m0a"]
 [ext_resource type="Texture2D" uid="uid://ce2xramffm58t" path="res://Assets/life_icon.png" id="8_suyv4"]
+[ext_resource type="Script" uid="uid://cddq21hv1o5y2" path="res://Scripts/cursor.gd" id="10_4u0gh"]
+[ext_resource type="Texture2D" uid="uid://bgq4f3mhk64up" path="res://Assets/Cursor.png" id="10_y3e6i"]
 
 [node name="gameplay" type="Node2D"]
 script = ExtResource("1_aod76")
 
+[node name="20251129193210Image" type="Sprite2D" parent="."]
+position = Vector2(575.75, 320)
+scale = Vector2(1.3574793, 1.3333334)
+texture = ExtResource("2_4u0gh")
+
 [node name="BlueIcon" type="Sprite2D" parent="."]
-position = Vector2(262, 113)
+position = Vector2(432, 80)
+scale = Vector2(0.515625, 0.49218753)
 texture = ExtResource("2_cowoy")
 
 [node name="GrayIcon1" type="Sprite2D" parent="."]
-position = Vector2(258, 314)
+position = Vector2(792, 168)
+scale = Vector2(0.421875, 0.421875)
 texture = ExtResource("3_4u0gh")
 
 [node name="GreenIcon" type="Sprite2D" parent="."]
-position = Vector2(593, 116)
+position = Vector2(528, 440)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_y3e6i")
 
 [node name="GrayIcon2" type="Sprite2D" parent="."]
-position = Vector2(595, 314)
+position = Vector2(704, 176)
+scale = Vector2(0.2890625, 0.671875)
 texture = ExtResource("5_wu1k5")
 
 [node name="RedIcon" type="Sprite2D" parent="."]
-position = Vector2(908, 106)
+position = Vector2(112, 264)
+scale = Vector2(0.625, 0.5)
 texture = ExtResource("6_m1bpj")
 
 [node name="GrayIcon3" type="Sprite2D" parent="."]
-position = Vector2(915, 319)
+position = Vector2(832, 464)
+scale = Vector2(0.375, 0.5)
 texture = ExtResource("7_64m0a")
 
 [node name="LivesContainer" type="HBoxContainer" parent="."]
@@ -68,3 +82,11 @@ texture = ExtResource("8_suyv4")
 position = Vector2(422.99997, 597.00006)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("8_suyv4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(575.99994, 311.99997)
+rotation = 0.7557276
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_y3e6i")
+flip_v = true
+script = ExtResource("10_4u0gh")
