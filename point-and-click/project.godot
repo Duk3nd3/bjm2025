@@ -21,4 +21,4 @@ TimerData="*res://Scripts/TimerData.gd"
 
 [editor]
 
-movie_writer/movie_file="C:/Users/RoCso/Desktop/GameJam 2025/bjm2025/primeras_pruebas.avi"
+movie_writer/movie_file="C:/Users/feelg/Desktop/BGJ2025/bjm2025/point-and-click/Movies/primeras_pruebas.avi"
