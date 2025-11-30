@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnqg4bar51rju"]
+[gd_scene load_steps=5 format=3 uid="uid://dnqg4bar51rju"]
 
 [ext_resource type="Script" uid="uid://denpjnq1kv12" path="res://Scripts/menu_inicial.gd" id="1_ko3br"]
 [ext_resource type="Texture2D" uid="uid://cecu0xs2b0hrl" path="res://Assets/MagiaFondo.png" id="2_1wodv"]
+[ext_resource type="Texture2D" uid="uid://bgq4f3mhk64up" path="res://Assets/Cursor.png" id="3_pm8da"]
+[ext_resource type="Script" uid="uid://cddq21hv1o5y2" path="res://Scripts/cursor.gd" id="4_j5por"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -36,3 +38,12 @@ text = "CREDITOS"
 layout_mode = 2
 text = "SALIR
 "
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(586.00006, 193.00003)
+rotation = 0.7303422
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_pm8da")
+flip_v = true
+script = ExtResource("4_j5por")
+stiffness = 20.0

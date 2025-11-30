@@ -1,15 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://be2wrmqm4l5xo"]
 
 [ext_resource type="Script" uid="uid://bwxmxc0gwjmow" path="res://Scripts/perdiste.gd" id="1_7jrqc"]
-[ext_resource type="Texture2D" uid="uid://d0t8j0sn80bc5" path="res://Assets/derrota.png" id="1_g255e"]
+[ext_resource type="Texture2D" uid="uid://bhq1k3obf73m0" path="res://Assets/FONDOS/FAILED/FONDO PERDER.png" id="2_7jrqc"]
 
 [node name="Perdiste" type="Node2D"]
 script = ExtResource("1_7jrqc")
 
 [node name="Derrota" type="Sprite2D" parent="."]
-position = Vector2(608, 392)
-scale = Vector2(2, 2)
-texture = ExtResource("1_g255e")
+position = Vector2(576.49994, 321)
+scale = Vector2(0.608, 0.6)
+texture = ExtResource("2_7jrqc")
 
 [node name="Label" type="Label" parent="Derrota"]
 offset_left = -248.0
